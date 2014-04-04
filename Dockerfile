@@ -9,21 +9,15 @@ ENV LANGUAGE en_US.UTF-8
 
 RUN apt-get update
 
-# Install Go
-ADD https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz /tmp/
-WORKDIR /tmp
-RUN tar -xvf /tmp/go1.2.1.linux-amd64.tar.gz
-ENV GOROOT /tmp/go
-ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/tmp/fleet/bin:/tmp/go/bin
-
 # Install fleet and fleetctl
-RUN apt-get -y install git
-RUN git clone https://github.com/coreos/fleet.git
-# TODO edit build script and comment out fleet install
-WORKDIR /tmp/fleet
-RUN chmod +x build
-ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/tmp/fleet/bin:/tmp/go/bin:/tmp/fleet/bin
-RUN ./build
+RUN apt-get install -y wget
+WORKDIR /tmp
+RUN wget --no-check-certificate https://github.com/coreos/fleet/releases/download/v0.1.4/fleet-v0.1.4-linux-amd64.tar.gz
+RUN tar -xvf fleet-v0.1.4-linux-amd64.tar.gz
+RUN mv /tmp/fleet-v0.1.4-linux-amd64/fleetctl /usr/bin/fleetctl
+RUN rm -rf /tmp/fleet-v0.1.4-linux-amd64
+RUN rm /tmp/fleet-v0.1.4-linux-amd64.tar.gz
+ENV FLEETCTL_ENDPOINT http://172.17.42.1:4001
 
 # Install Ruby
 RUN apt-get install -y software-properties-common python-software-properties

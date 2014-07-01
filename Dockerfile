@@ -1,18 +1,12 @@
-FROM ubuntu:precise
+FROM centurylinklabs/ruby-base:2.1.2
 
-ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y libsqlite3-dev ca-certificates
 
-# Ensure UTF-8
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
+ADD . /tmp
+WORKDIR /tmp
+RUN bundle install --without development
 
-RUN apt-get update
-RUN apt-get install -y software-properties-common python-software-properties
-RUN add-apt-repository ppa:brightbox/ruby-ng
-RUN apt-get update
-RUN apt-get install -y ruby2.1 gcc g++ ruby2.1-dev libssl-dev make
-
-RUN echo "install: --no-rdoc --no-ri" > /etc/gemrc
-RUN echo "update:  --no-rdoc --no-ri" >> /etc/gemrc
-RUN gem install bundler
+ONBUILD ADD . /usr/src/app
+ONBUILD WORKDIR /usr/src/app
+ONBUILD RUN RAILS_ENV=production bundle install --without development test
+ONBUILD EXPOSE 3000

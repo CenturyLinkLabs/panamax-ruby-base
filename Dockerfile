@@ -8,5 +8,5 @@ RUN bundle install --without development
 
 ONBUILD ADD . /usr/src/app
 ONBUILD WORKDIR /usr/src/app
-#ONBUILD RUN RAILS_ENV=production bundle install --without development test
+ONBUILD RUN RAILS_ENV=production bundle install --without development test
 ONBUILD EXPOSE 3000

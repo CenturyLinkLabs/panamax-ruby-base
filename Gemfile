@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
 # Shared Gems
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.7'
 gem 'puma', '2.8.2'
 gem 'faraday', '0.8.9'
+gem 'activeresource', '4.0.0'
 
 # UI Gems
 gem 'jquery-rails', '3.1.1'
@@ -12,7 +13,6 @@ gem 'sass', '3.3.9'
 gem 'therubyracer', '0.12.1', platforms: :ruby
 gem 'haml', '4.0.5'
 gem 'uglifier', '2.5.1'
-gem 'activeresource', '4.0.0'
 gem 'kramdown', '1.4.0'
 
 # API Gems

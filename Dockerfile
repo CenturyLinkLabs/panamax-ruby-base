@@ -1,4 +1,4 @@
-FROM centurylink/ruby-base:2.1.2
+FROM centurylink/ruby-base:2.1.5
 
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y libsqlite3-dev ca-certificates

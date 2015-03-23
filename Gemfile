@@ -8,7 +8,7 @@ gem 'activeresource', '4.0.0'
 gem 'tzinfo-data', '1.2015.2'
 
 # UI Gems
-gem 'ctl_base_ui', '0.0.5'
+gem 'ctl_base_ui', '0.0.6'
 gem 'sass', '3.3.9'
 gem 'haml', '4.0.5'
 gem 'uglifier', '2.5.1'

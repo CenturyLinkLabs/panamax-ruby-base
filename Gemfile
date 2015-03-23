@@ -23,6 +23,7 @@ gem 'fleet-api', '1.1.0'
 gem 'active_model_serializers', '0.9.0'
 gem 'octokit', '3.2.0'
 gem 'kmts', '2.0.1'
+gem 'tzinfo-data'
 
 group :development do
   gem 'rspec-rails', '3.1.0'

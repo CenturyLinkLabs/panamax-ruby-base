@@ -1,7 +1,7 @@
-FROM centurylink/ruby-base:2.1.5
+FROM centurylink/ruby-base:2.2
 
-RUN apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y libsqlite3-dev ca-certificates
+RUN apk --update  \
+        add sqlite-dev ca-certificates
 
 ADD . /tmp
 WORKDIR /tmp

@@ -5,7 +5,6 @@ gem 'rails', '4.1.7'
 gem 'puma', '2.8.2'
 gem 'faraday', '0.8.9'
 gem 'activeresource', '4.0.0'
-gem 'tzinfo-data', '1.2015.2'
 
 # UI Gems
 gem 'ctl_base_ui', '0.0.6'

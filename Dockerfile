@@ -1,11 +1,34 @@
-FROM centurylink/ruby-base:2.1.5
+FROM gliderlabs/alpine:3.1
 
-RUN apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y libsqlite3-dev ca-certificates
+MAINTAINER CenturyLink Labs <clt-labs-futuretech@centurylink.com>
 
+
+ENV RUBY_MAJOR 2.2
+ENV RUBY_VERSION 2.2.0
+RUN echo 'gem: --no-document' >> /.gemrc
 ADD . /tmp
 WORKDIR /tmp
-RUN bundle install --without development
+
+
+RUN apk-install curl \
+   libffi \
+   build-base \
+   openssl-dev \
+   gdbm \
+   ncurses \
+   readline \
+   yaml \
+   sqlite-dev \
+   ca-certificates \
+   tzdata \
+   make \
+   ruby-bundler \
+   ruby-dev  \
+   && gem install --no-document bundler \
+   && bundle install --without development \
+   && apk  del build-base make ncurses
+
+CMD [ "irb" ]
 
 # These instructions are only executed when this image is used as the base for
 # another image. They will be executed immediately after the FROM instruction

@@ -21,12 +21,12 @@ RUN apk-install curl \
    sqlite-dev \
    ca-certificates \
    tzdata \
-   make \
    ruby-bundler \
    ruby-dev  \
    && gem install --no-document bundler \
    && bundle install --without development \
-   && apk  del build-base make ncurses
+   && apk del build-base ncurses
+   && rm -rf /var/cache/apk/*
 
 CMD [ "irb" ]
 

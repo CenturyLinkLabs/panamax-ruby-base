@@ -1,3 +1,7 @@
+## NOTE
+
+This repo is no longer being maintained. Users are welcome to fork it, but we make no warranty of its functionality.
+
 ## panamax-ruby-base
 [![](https://badge.imagelayers.io/centurylink/panamax-ruby-base.svg)](https://imagelayers.io/?images=centurylink/panamax-ruby-base:latest 'Get your own badge on imagelayers.io')
 

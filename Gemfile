@@ -11,7 +11,7 @@ gem 'ctl_base_ui', '0.0.6'
 gem 'sass', '3.3.9'
 gem 'haml', '4.0.5'
 gem 'uglifier', '2.5.1'
-gem 'kramdown', '1.4.0'
+gem 'kramdown', '2.3.0'
 gem 'zeroclipboard-rails', '0.1.0'
 
 # API Gems

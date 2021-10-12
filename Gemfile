@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Shared Gems
 gem 'rails', '4.1.7'
-gem 'puma', '2.8.2'
+gem 'puma', '4.3.9'
 gem 'faraday', '0.8.9'
 gem 'activeresource', '4.0.0'
 
